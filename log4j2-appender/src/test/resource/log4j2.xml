@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="com.microsoft.applicationinsights.log4j.v2" status="debug">
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+        <LogAnalyticsAppender name="LogAnalyticsAppenderTest" workspaceId="b3110671-decf-444c-9fc0-0fd0e63d6f5b" sharedSecretEnvVariable="workspaceSecret"/>
+        <LogAnalyticsAppender name="LogAnalyticsAppenderTestCustomLayout" workspaceId="b3110671-decf-444c-9fc0-0fd0e63d6f5b" sharedSecret="ILNe029LF7zJqvobClIt18kn6x9+T/jeNXMxDzYLcJJjo45TnAHppEDe6OgmBHWMFm6/rGA0XcSYTpoQMNDIgg==">
+            <JsonLayout complete="false" compact="false">
+                <KeyValuePair key="StudytonightField" value="studytonightValue" />
+            </JsonLayout>
+        </LogAnalyticsAppender>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="console" />
+        </Root>
+        <Logger name="de.bender" level="debug">
+            <AppenderRef ref="LogAnalyticsAppenderTest"/>
+        </Logger>
+        <!--Logger name="de" level="debug">
+            <AppenderRef ref="LogAnalyticsAppenderTestCustomLayout"/>
+        </Logger-->
+    </Loggers>
+</Configuration>
