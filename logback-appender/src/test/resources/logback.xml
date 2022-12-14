@@ -11,5 +11,5 @@
     <root level="info">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="logbackAnalytics"/>
-    </root>d
+    </root>
 </configuration>
